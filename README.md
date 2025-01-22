@@ -1,7 +1,7 @@
-# Data analysis code for: Talbot et al. 2024, Comorbid anxiety predicts lower odds of depression improvement during smartphone-delivered psychotherapy
+# Comorbid anxiety predicts lower odds of depression improvement during smartphone-delivered psychotherapy
 
 This repository contains the data analysis code for the paper:
-Talbot, Morgan B., Omar Costilla-Reyes, and Jessica M. Lipschitz. "Comorbid anxiety symptoms predict lower odds of improvement in depression symptoms during smartphone-delivered psychotherapy." arXiv preprint arXiv:2409.11183 (2024).
+Talbot, Morgan B., Jessica M. Lipschitz., and Omar Costilla-Reyes. "Comorbid anxiety symptoms predict lower odds of improvement in depression symptoms during smartphone-delivered psychotherapy." arXiv preprint arXiv:2409.11183 (2024).
 
 ## Abstract
 
