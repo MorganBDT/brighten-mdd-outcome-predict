@@ -1,0 +1,13 @@
+*.csv
+*.pdf
+*.png
+*.jpg
+*.jpeg
+*.zip
+*:Zone.Identifier
+
+.ipynb_checkpoints/
+__pycache__/
+data/
+venvs/
+scrap/
