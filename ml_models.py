@@ -65,7 +65,10 @@ class LogisticRegression(MLModel):
         
 class DecisionTree(MLModel):
     def __init__(self, model_args):
-        self.model = tree.DecisionTreeClassifier(max_depth=model_args["dt_max_depth"])
+        self.model = tree.DecisionTreeClassifier(
+            max_depth=model_args["dt_max_depth"],
+            random_state=model_args.get("random_state")
+        )
     
     @staticmethod
     def model_name():
@@ -77,7 +80,11 @@ class DecisionTree(MLModel):
 
 class RandomForest(MLModel):
     def __init__(self, model_args):
-        self.model = RandomForestClassifier(n_estimators=model_args["rf_n_estimators"], max_depth=model_args["rf_max_depth"])
+        self.model = RandomForestClassifier(
+            n_estimators=model_args["rf_n_estimators"], 
+            max_depth=model_args["rf_max_depth"],
+            random_state=model_args.get("random_state")
+        )
     
     @staticmethod
     def model_name():

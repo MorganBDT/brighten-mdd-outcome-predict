@@ -1,0 +1,82 @@
+PLEASE NOTE: predictor 'mania_history' not in dataframe loaded from 'results/sens_exclude_min/miceRanger_imputed_formatted_Brighten-v1_all.csv'.
+PLEASE NOTE: predictor 'psychosis_history' not in dataframe loaded from 'results/sens_exclude_min/miceRanger_imputed_formatted_Brighten-v1_all.csv'.
+
+------- logistic_regression predicting mdd_improve -------
+
+Exploring models with complexity: 1
+
+Exploring path with predictors: []
+Current AUC: 0.5000
+Predictor: base_phq9, Mean AUC: 0.5321, AUC increase: 0.0321, 95% CI: [-0.0949, 0.1482], p-value: 0.2979, Mean Acc: 0.6004, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'base_phq9': -0.14844028139105778}, Coefs CI lower: {'base_phq9': -0.27166311608705257}, Coefs CI upper: {'base_phq9': -0.023539774775976793}
+Predictor: gender, Mean AUC: 0.4849, AUC increase: -0.0151, 95% CI: [-0.0996, 0.0667], p-value: 0.6351, Mean Acc: 0.6014, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'gender': 0.014684052999238617}, Coefs CI lower: {'gender': -0.1314891582316108}, Coefs CI upper: {'gender': 0.15706742552014263}
+Predictor: education, Mean AUC: 0.4812, AUC increase: -0.0188, 95% CI: [-0.1022, 0.0587], p-value: 0.6641, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'education': 0.032031378788783274}, Coefs CI lower: {'education': -0.09322284396180207}, Coefs CI upper: {'education': 0.15431790733601844}
+Predictor: working, Mean AUC: 0.4730, AUC increase: -0.0270, 95% CI: [-0.1136, 0.0540], p-value: 0.7362, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'working': 0.0063045500030034845}, Coefs CI lower: {'working': -0.11933691353280519}, Coefs CI upper: {'working': 0.13054716391706206}
+Predictor: marital_status, Mean AUC: 0.4810, AUC increase: -0.0190, 95% CI: [-0.1058, 0.0691], p-value: 0.6667, Mean Acc: 0.6013, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'marital_status': 0.029679369339185763}, Coefs CI lower: {'marital_status': -0.1032255827914958}, Coefs CI upper: {'marital_status': 0.16512117010606223}
+Predictor: race_is_latino, Mean AUC: 0.5077, AUC increase: 0.0077, 95% CI: [-0.0846, 0.0865], p-value: 0.4082, Mean Acc: 0.5947, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_latino': 0.09685074986238223}, Coefs CI lower: {'race_is_latino': -0.044628849405315106}, Coefs CI upper: {'race_is_latino': 0.23977945843982879}
+Predictor: race_is_black, Mean AUC: 0.5171, AUC increase: 0.0171, 95% CI: [-0.0472, 0.0783], p-value: 0.2836, Mean Acc: 0.5951, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_black': 0.14117368135590455}, Coefs CI lower: {'race_is_black': 0.014244063947642382}, Coefs CI upper: {'race_is_black': 0.26692856082146266}
+Predictor: race_is_asian, Mean AUC: 0.5163, AUC increase: 0.0163, 95% CI: [-0.0584, 0.0812], p-value: 0.3016, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_asian': -0.13757769111023604}, Coefs CI lower: {'race_is_asian': -0.3032642994079007}, Coefs CI upper: {'race_is_asian': 0.014547234297840295}
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.4941, AUC increase: -0.0059, 95% CI: [-0.0568, 0.0426], p-value: 0.5934, Mean Acc: 0.6007, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_multiracial_or_other': -0.04880009474005656}, Coefs CI lower: {'race_is_multiracial_or_other': -0.2028628896169617}, Coefs CI upper: {'race_is_multiracial_or_other': 0.09201234623905158}
+Predictor: age, Mean AUC: 0.4942, AUC increase: -0.0058, 95% CI: [-0.1341, 0.1205], p-value: 0.5338, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'age': -0.07049674365641977}, Coefs CI lower: {'age': -0.21521745719300936}, Coefs CI upper: {'age': 0.07011408828677015}
+Predictor: income_satisfaction, Mean AUC: 0.4966, AUC increase: -0.0034, 95% CI: [-0.0764, 0.0722], p-value: 0.5395, Mean Acc: 0.5989, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'income_satisfaction': -0.02286053813128782}, Coefs CI lower: {'income_satisfaction': -0.22900459953667676}, Coefs CI upper: {'income_satisfaction': 0.18312974569989762}
+Predictor: gad7_sum, Mean AUC: 0.6556, AUC increase: 0.1556, 95% CI: [0.0392, 0.2706], p-value: 0.0046, Mean Acc: 0.6071, Acc 95% CI: [0.5000, 0.7105], Mean coefs: {'gad7_sum': -0.5843456383416636}, Coefs CI lower: {'gad7_sum': -0.7445565381219486}, Coefs CI upper: {'gad7_sum': -0.4284439054234309}
+Predictor: sds_sum, Mean AUC: 0.6155, AUC increase: 0.1155, 95% CI: [-0.0028, 0.2321], p-value: 0.0279, Mean Acc: 0.6045, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'sds_sum': -0.40806996637762527}, Coefs CI lower: {'sds_sum': -0.5472435289689428}, Coefs CI upper: {'sds_sum': -0.2632432368354328}
+Predictor: alc_sum, Mean AUC: 0.5438, AUC increase: 0.0438, 95% CI: [-0.0819, 0.1631], p-value: 0.2394, Mean Acc: 0.5998, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'alc_sum': -0.170034958372266}, Coefs CI lower: {'alc_sum': -0.3113114121031544}, Coefs CI upper: {'alc_sum': -0.03302733257924776}
+Predictor: study_arm_EVO, Mean AUC: 0.4924, AUC increase: -0.0076, 95% CI: [-0.1220, 0.0964], p-value: 0.5445, Mean Acc: 0.6016, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_EVO': 0.06157548700804101}, Coefs CI lower: {'study_arm_EVO': -0.07107349280053321}, Coefs CI upper: {'study_arm_EVO': 0.19649018872973795}
+Predictor: study_arm_HealthTips, Mean AUC: 0.4860, AUC increase: -0.0140, 95% CI: [-0.1215, 0.0847], p-value: 0.5858, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_HealthTips': -0.052187021435267954}, Coefs CI lower: {'study_arm_HealthTips': -0.17982048534909423}, Coefs CI upper: {'study_arm_HealthTips': 0.07624828287750313}
+Predictor: study_arm_iPST, Mean AUC: 0.4816, AUC increase: -0.0184, 95% CI: [-0.0920, 0.0567], p-value: 0.6968, Mean Acc: 0.6015, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_iPST': -0.012885082376542541}, Coefs CI lower: {'study_arm_iPST': -0.15399692553179203}, Coefs CI upper: {'study_arm_iPST': 0.12198221048652175}
+No predictors significantly improved the model. Stopping exploration for this path.
+
+------- knn predicting mdd_improve -------
+
+Exploring models with complexity: 1
+
+Exploring path with predictors: []
+Current AUC: 0.5000
+Predictor: base_phq9, Mean AUC: 0.5044, AUC increase: 0.0044, 95% CI: [-0.1172, 0.1243], p-value: 0.4743, Mean Acc: 0.5331, Acc 95% CI: [0.4079, 0.6447]
+Predictor: gender, Mean AUC: 0.4984, AUC increase: -0.0016, 95% CI: [-0.0850, 0.0809], p-value: 0.6754, Mean Acc: 0.5284, Acc 95% CI: [0.3421, 0.6842]
+Predictor: education, Mean AUC: 0.4975, AUC increase: -0.0025, 95% CI: [-0.0855, 0.0790], p-value: 0.6822, Mean Acc: 0.5277, Acc 95% CI: [0.3421, 0.6842]
+Predictor: working, Mean AUC: 0.4975, AUC increase: -0.0025, 95% CI: [-0.0929, 0.0860], p-value: 0.6812, Mean Acc: 0.5270, Acc 95% CI: [0.3421, 0.6842]
+Predictor: marital_status, Mean AUC: 0.4979, AUC increase: -0.0021, 95% CI: [-0.0899, 0.0823], p-value: 0.6798, Mean Acc: 0.5276, Acc 95% CI: [0.3421, 0.6842]
+Predictor: race_is_latino, Mean AUC: 0.5005, AUC increase: 0.0005, 95% CI: [-0.0790, 0.0785], p-value: 0.6538, Mean Acc: 0.5296, Acc 95% CI: [0.3289, 0.6842]
+Predictor: race_is_black, Mean AUC: 0.5027, AUC increase: 0.0027, 95% CI: [-0.0627, 0.0674], p-value: 0.6109, Mean Acc: 0.5311, Acc 95% CI: [0.3158, 0.6842]
+Predictor: race_is_asian, Mean AUC: 0.5027, AUC increase: 0.0027, 95% CI: [-0.0658, 0.0690], p-value: 0.6308, Mean Acc: 0.5300, Acc 95% CI: [0.3421, 0.6842]
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.4987, AUC increase: -0.0013, 95% CI: [-0.0497, 0.0443], p-value: 0.6836, Mean Acc: 0.5286, Acc 95% CI: [0.3289, 0.6842]
+Predictor: age, Mean AUC: 0.4952, AUC increase: -0.0048, 95% CI: [-0.1237, 0.1121], p-value: 0.5312, Mean Acc: 0.5222, Acc 95% CI: [0.4207, 0.6316]
+Predictor: income_satisfaction, Mean AUC: 0.4997, AUC increase: -0.0003, 95% CI: [-0.0678, 0.0653], p-value: 0.6712, Mean Acc: 0.5292, Acc 95% CI: [0.3289, 0.6842]
+Predictor: gad7_sum, Mean AUC: 0.5820, AUC increase: 0.0820, 95% CI: [-0.0535, 0.2068], p-value: 0.1105, Mean Acc: 0.5838, Acc 95% CI: [0.4605, 0.6974]
+Predictor: sds_sum, Mean AUC: 0.5418, AUC increase: 0.0418, 95% CI: [-0.0800, 0.1581], p-value: 0.2483, Mean Acc: 0.5561, Acc 95% CI: [0.4474, 0.6711]
+Predictor: alc_sum, Mean AUC: 0.5085, AUC increase: 0.0085, 95% CI: [-0.1118, 0.1250], p-value: 0.4417, Mean Acc: 0.5319, Acc 95% CI: [0.3947, 0.6579]
+Predictor: study_arm_EVO, Mean AUC: 0.4996, AUC increase: -0.0004, 95% CI: [-0.1000, 0.1016], p-value: 0.6681, Mean Acc: 0.5284, Acc 95% CI: [0.3421, 0.6842]
+Predictor: study_arm_HealthTips, Mean AUC: 0.4983, AUC increase: -0.0017, 95% CI: [-0.1009, 0.0943], p-value: 0.6744, Mean Acc: 0.5278, Acc 95% CI: [0.3553, 0.6842]
+Predictor: study_arm_iPST, Mean AUC: 0.4982, AUC increase: -0.0018, 95% CI: [-0.0759, 0.0710], p-value: 0.6816, Mean Acc: 0.5278, Acc 95% CI: [0.3421, 0.6842]
+No predictors significantly improved the model. Stopping exploration for this path.
+
+------- svm predicting mdd_improve -------
+
+Exploring models with complexity: 1
+
+Exploring path with predictors: []
+Current AUC: 0.5000
+Predictor: base_phq9, Mean AUC: 0.4970, AUC increase: -0.0030, 95% CI: [-0.1387, 0.1295], p-value: 0.5225, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'base_phq9': 2.3157728013402101e-07}, Coefs CI lower: {'base_phq9': -7.865667114970166e-07}, Coefs CI upper: {'base_phq9': 1.1304497022024401e-06}
+Predictor: gender, Mean AUC: 0.4984, AUC increase: -0.0016, 95% CI: [-0.0899, 0.0885], p-value: 0.5543, Mean Acc: 0.6015, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'gender': 0.0024257576550227307}, Coefs CI lower: {'gender': -1.7879585811897414e-08}, Coefs CI upper: {'gender': 1.7879580482826896e-08}
+Predictor: education, Mean AUC: 0.4952, AUC increase: -0.0048, 95% CI: [-0.0923, 0.0833], p-value: 0.5846, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'education': -8.386908755355123e-05}, Coefs CI lower: {'education': -1.7879576041934797e-08}, Coefs CI upper: {'education': 1.7879589364611093e-08}
+Predictor: working, Mean AUC: 0.4948, AUC increase: -0.0052, 95% CI: [-0.1008, 0.0931], p-value: 0.5935, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'working': -9.224372207482072e-05}, Coefs CI lower: {'working': -1.7213931613468958e-08}, Coefs CI upper: {'working': 1.7213949377037352e-08}
+Predictor: marital_status, Mean AUC: 0.4981, AUC increase: -0.0019, 95% CI: [-0.0931, 0.0881], p-value: 0.6327, Mean Acc: 0.6014, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'marital_status': 0.0028040757894738258}, Coefs CI lower: {'marital_status': -1.8352583452951876e-08}, Coefs CI upper: {'marital_status': 1.8352595443360542e-08}
+Predictor: race_is_latino, Mean AUC: 0.4987, AUC increase: -0.0013, 95% CI: [-0.0846, 0.0819], p-value: 0.5445, Mean Acc: 0.5954, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_latino': 0.0933253798361532}, Coefs CI lower: {'race_is_latino': -1.6365526711581424e-08}, Coefs CI upper: {'race_is_latino': 0.7302609471123134}
+Predictor: race_is_black, Mean AUC: 0.4909, AUC increase: -0.0091, 95% CI: [-0.0735, 0.0645], p-value: 0.6354, Mean Acc: 0.5945, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_black': 0.30080188433511873}, Coefs CI lower: {'race_is_black': -3.552713678800501e-15}, Coefs CI upper: {'race_is_black': 0.5792055701248948}
+Predictor: race_is_asian, Mean AUC: 0.5032, AUC increase: 0.0032, 95% CI: [-0.0685, 0.0722], p-value: 0.5282, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_asian': 5.6010441803593846e-05}, Coefs CI lower: {'race_is_asian': -1.5875286862865323e-08}, Coefs CI upper: {'race_is_asian': 1.0474688671990862e-08}
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.5004, AUC increase: 0.0004, 95% CI: [-0.0476, 0.0486], p-value: 0.6218, Mean Acc: 0.6012, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'race_is_multiracial_or_other': 0.00573612753496433}, Coefs CI lower: {'race_is_multiracial_or_other': -1.1633358720786191e-08}, Coefs CI upper: {'race_is_multiracial_or_other': 1.1633359164875401e-08}
+Predictor: age, Mean AUC: 0.5004, AUC increase: 0.0004, 95% CI: [-0.1251, 0.1272], p-value: 0.4990, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'age': 3.010939143018809e-07}, Coefs CI lower: {'age': -7.947255275086996e-07}, Coefs CI upper: {'age': 1.1249924387612964e-06}
+Predictor: income_satisfaction, Mean AUC: 0.4995, AUC increase: -0.0005, 95% CI: [-0.0722, 0.0710], p-value: 0.5771, Mean Acc: 0.5993, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'income_satisfaction': -0.06029428588918221}, Coefs CI lower: {'income_satisfaction': -0.6623722088080362}, Coefs CI upper: {'income_satisfaction': 1.5875283754240854e-08}
+Predictor: gad7_sum, Mean AUC: 0.5770, AUC increase: 0.0770, 95% CI: [-0.2388, 0.2595], p-value: 0.2333, Mean Acc: 0.6001, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'gad7_sum': -0.24535133008465473}, Coefs CI lower: {'gad7_sum': -0.9006088991573014}, Coefs CI upper: {'gad7_sum': 6.18111554961942e-07}
+Predictor: sds_sum, Mean AUC: 0.5187, AUC increase: 0.0187, 95% CI: [-0.2108, 0.2154], p-value: 0.4039, Mean Acc: 0.5981, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'sds_sum': -0.07537392958293387}, Coefs CI lower: {'sds_sum': -0.6018851207915394}, Coefs CI upper: {'sds_sum': 8.456610806950578e-07}
+Predictor: alc_sum, Mean AUC: 0.4987, AUC increase: -0.0013, 95% CI: [-0.1412, 0.1410], p-value: 0.5130, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'alc_sum': 2.1822363014322167e-07}, Coefs CI lower: {'alc_sum': -4.1621825606075193e-07}, Coefs CI upper: {'alc_sum': 1.0798812461576544e-06}
+Predictor: study_arm_EVO, Mean AUC: 0.4991, AUC increase: -0.0009, 95% CI: [-0.1043, 0.1023], p-value: 0.6379, Mean Acc: 0.6017, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_EVO': 0.0015590830660843428}, Coefs CI lower: {'study_arm_EVO': -7.61937180016048e-09}, Coefs CI upper: {'study_arm_EVO': 9.025564307041378e-09}
+Predictor: study_arm_HealthTips, Mean AUC: 0.4983, AUC increase: -0.0017, 95% CI: [-0.1054, 0.1012], p-value: 0.6104, Mean Acc: 0.6019, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_HealthTips': -1.6249285033631545e-09}, Coefs CI lower: {'study_arm_HealthTips': -1.6432968763524514e-08}, Coefs CI upper: {'study_arm_HealthTips': 1.237903292095055e-08}
+Predictor: study_arm_iPST, Mean AUC: 0.4979, AUC increase: -0.0021, 95% CI: [-0.0820, 0.0790], p-value: 0.5804, Mean Acc: 0.6017, Acc 95% CI: [0.5000, 0.6974], Mean coefs: {'study_arm_iPST': 0.0018843133975156717}, Coefs CI lower: {'study_arm_iPST': -2.197865667241672e-08}, Coefs CI upper: {'study_arm_iPST': 2.1978664221933286e-08}
+No predictors significantly improved the model. Stopping exploration for this path.
+Empty DataFrame
+Columns: []
+Index: []
+SAVING AS: results/sens_exclude_min/results_Brighten-v1/fwd_fast_depth_1_seed_0.csv
+Total time (seconds): 1038.5654182434082

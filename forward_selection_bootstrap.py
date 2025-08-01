@@ -1,5 +1,5 @@
+import os
 import sys
-import numpy as np
 import pandas as pd
 import argparse
 import time
@@ -10,6 +10,7 @@ from functools import partial
 import load_data
 import ml_models
 import train_eval
+from utils import benjamini_hochberg_correction
 
 warnings.filterwarnings("ignore", category=UserWarning, message="X does not have valid feature names")
 
@@ -43,7 +44,7 @@ def get_args(argv):
 
 def evaluate_predictor(data, current_predictors, pred, outcome, model_class, model_params, n_bootstrap, seed, resample):
     try:
-        mean_auc, mean_diff, ci_lower, ci_upper, p_value, mean_coefs, coefs_ci_lower, coefs_ci_upper = train_eval.bootstrap_auc_comparison(
+        mean_auc, mean_diff, ci_lower, ci_upper, p_value, mean_acc, acc_ci_lower, acc_ci_upper, mean_coefs, coefs_ci_lower, coefs_ci_upper = train_eval.bootstrap_auc_comparison(
             data, current_predictors, pred, outcome, model_class, model_params, n_bootstrap, seed, resample=resample
         )
         return {
@@ -53,6 +54,9 @@ def evaluate_predictor(data, current_predictors, pred, outcome, model_class, mod
             "ci_lower": ci_lower,
             "ci_upper": ci_upper,
             "p_value": p_value,
+            "mean_acc": mean_acc,
+            "acc_ci_lower": acc_ci_lower,
+            "acc_ci_upper": acc_ci_upper,
             "mean_coefs": mean_coefs,
             "coefs_ci_lower": coefs_ci_lower, 
             "coefs_ci_upper": coefs_ci_upper,
@@ -60,27 +64,6 @@ def evaluate_predictor(data, current_predictors, pred, outcome, model_class, mod
     except Exception as e:
         print(f"Error evaluating predictor {pred}: {str(e)}")
         return None
-    
-def benjamini_hochberg_correction(p_values, fdr=0.05):
-    """
-    Perform Benjamini-Hochberg correction on a list of p-values.
-    Returns a list of booleans indicating which p-values are significant.
-    """
-    n = len(p_values)
-    sorted_indices = np.argsort(p_values)
-    sorted_p_values = np.array(p_values)[sorted_indices]
-    
-    thresholds = np.arange(1, n + 1) * fdr / n
-    last_significant = np.where(sorted_p_values < thresholds)[0]
-    
-    if len(last_significant) == 0:
-        return np.zeros(n, dtype=bool)
-    
-    last_significant = last_significant[-1]
-    significant = np.zeros(n, dtype=bool)
-    significant[sorted_indices[:last_significant + 1]] = True
-    
-    return significant
 
 def explore_paths(data, predictors, outcome, model_class, model_params, args):
     paths = deque([{"predictors": [], "auc": 0.5}])
@@ -128,8 +111,8 @@ def explore_paths(data, predictors, outcome, model_class, model_params, args):
         # Filter out None results (failed evaluations) and print results
         results = [r for r in results if r is not None]
         for result in results:
-            print_str = f"Predictor: {result['predictor']}, AUC increase: {result['auc_increase']:.4f}, 95% CI: [{result['ci_lower']:.4f}, {result['ci_upper']:.4f}], p-value: {result['p_value']:.4f}"
-            if model_class.model_name() == "logistic_regression":
+            print_str = f"Predictor: {result['predictor']}, Mean AUC: {result['mean_auc']:.4f}, AUC increase: {result['auc_increase']:.4f}, 95% CI: [{result['ci_lower']:.4f}, {result['ci_upper']:.4f}], p-value: {result['p_value']:.4f}, Mean Acc: {result['mean_acc']:.4f}, Acc 95% CI: [{result['acc_ci_lower']:.4f}, {result['acc_ci_upper']:.4f}]"
+            if model_class.model_name() in ["logistic_regression", "svm"]:
                 print_str = print_str + f", Mean coefs: {result['mean_coefs']}, Coefs CI lower: {result['coefs_ci_lower']}, Coefs CI upper: {result['coefs_ci_upper']}"
             print(print_str)
         
@@ -179,7 +162,10 @@ def explore_paths(data, predictors, outcome, model_class, model_params, args):
                     "auc": new_auc,
                     "ci_lower": predictor['ci_lower'],
                     "ci_upper": predictor['ci_upper'],
-                    "p_value": predictor['p_value']
+                    "p_value": predictor['p_value'],
+                    "mean_acc": predictor['mean_acc'],
+                    "acc_ci_lower": predictor['acc_ci_lower'],
+                    "acc_ci_upper": predictor['acc_ci_upper'],
                 }
                 
                 paths.append(new_path)
@@ -204,7 +190,7 @@ def main():
         print("You must specify one or more model types. Exiting...")
         sys.exit(0)
         
-    outcomes = ["response"]
+    outcomes = ["mdd_improve"]
     
     data, predictors = load_data.load_data(standardize=args.standardize_on_load, filename=args.filename, impute=False)
 
@@ -246,6 +232,9 @@ def main():
                         "ci_lower": model.get("ci_lower"),
                         "ci_upper": model.get("ci_upper"),
                         "p_value": model.get("p_value"),
+                        "mean_acc": model.get("mean_acc"),
+                        "acc_ci_lower": model.get("acc_ci_lower"),
+                        "acc_ci_upper": model.get("acc_ci_upper"),
                         "complexity": complexity,
                         "rf_n_estimators": rf_n_estimators
                     })
@@ -258,6 +247,7 @@ def main():
     else:
         fname = f"forward_selection_results_bootstrap_{args.seed}_{int(time.time())}.csv"
     print(f"SAVING AS: {fname}")
+    os.makedirs(os.path.dirname(fname), exist_ok=True)
     all_results_df.to_csv(fname, index=False)
     print(f"Total time (seconds): {time.time() - start_time}")
 

@@ -1,0 +1,25 @@
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_fast_depth_1_seed_0.csv --logistic_regression --knn --svm --complexity 1 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_fast_depth_1_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_dt_depth_1_seed_0.csv --decision_tree --complexity 1 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_dt_depth_1_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_rf_depth_1_seed_0.csv --random_forest --complexity 1 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_rf_depth_1_seed_0.log
+
+--------------
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_dt_depth_2_seed_0.csv --decision_tree --complexity 2 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_dt_depth_2_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_dt_depth_3_seed_0.csv --decision_tree --complexity 3 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_dt_depth_3_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_dt_depth_4_seed_0.csv --decision_tree --complexity 4 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_dt_depth_4_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_dt_depth_5_seed_0.csv --decision_tree --complexity 5 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_dt_depth_5_seed_0.log
+
+--------------
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_rf_depth_2_seed_0.csv --random_forest --complexity 2 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_rf_depth_2_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_rf_depth_3_seed_0.csv --random_forest --complexity 3 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_rf_depth_3_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_rf_depth_4_seed_0.csv --random_forest --complexity 4 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_rf_depth_4_seed_0.log
+
+python -u forward_selection_bootstrap.py --output_filename results/main/results_Brighten-v1/fwd_rf_depth_5_seed_0.csv --random_forest --complexity 5 --seed 0 --filename results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv --multiple_imputation --n_imputations 100 --metric_improvement_margin 0.02 --beam_width 5 --n_bootstrap 10000 --bh_correction | tee results/main/results_Brighten-v1/fwd_rf_depth_5_seed_0.log

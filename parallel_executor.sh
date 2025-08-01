@@ -4,7 +4,7 @@
 usage() {
     echo "Usage: $0 <command_file> [max_parallel]"
     echo "  <command_file>: File containing commands to execute"
-    echo "  [max_parallel]: Maximum number of parallel processes (default: 4)"
+    echo "  [max_parallel]: Maximum number of parallel processes (default: 3)"
     exit 1
 }
 
@@ -14,7 +14,7 @@ if [ $# -eq 0 ]; then
 fi
 
 command_file="$1"
-max_parallel=${2:-4}  # Use the second argument if provided, otherwise default to 4
+max_parallel=${2:-3}  # Use the second argument if provided, otherwise default to 3
 
 # Validate max_parallel is a positive integer
 if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then

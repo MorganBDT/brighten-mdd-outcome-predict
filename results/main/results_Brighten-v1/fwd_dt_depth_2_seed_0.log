@@ -1,0 +1,76 @@
+PLEASE NOTE: predictor 'mania_history' not in dataframe loaded from 'results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv'.
+PLEASE NOTE: predictor 'psychosis_history' not in dataframe loaded from 'results/main/miceRanger_imputed_formatted_Brighten-v1_all.csv'.
+
+------- decision_tree predicting mdd_improve -------
+
+Exploring models with complexity: 2
+
+Exploring path with predictors: []
+Current AUC: 0.5000
+Predictor: base_phq9, Mean AUC: 0.5879, AUC increase: 0.0879, 95% CI: [0.0038, 0.1677], p-value: 0.0208, Mean Acc: 0.5768, Acc 95% CI: [0.4922, 0.6641]
+Predictor: gender, Mean AUC: 0.5051, AUC increase: 0.0051, 95% CI: [-0.0724, 0.0803], p-value: 0.4504, Mean Acc: 0.5907, Acc 95% CI: [0.5078, 0.6719]
+Predictor: education, Mean AUC: 0.5028, AUC increase: 0.0028, 95% CI: [-0.0773, 0.0711], p-value: 0.4460, Mean Acc: 0.5928, Acc 95% CI: [0.5078, 0.6719]
+Predictor: working, Mean AUC: 0.4980, AUC increase: -0.0020, 95% CI: [-0.0860, 0.0792], p-value: 0.5200, Mean Acc: 0.5928, Acc 95% CI: [0.5078, 0.6719]
+Predictor: marital_status, Mean AUC: 0.5063, AUC increase: 0.0063, 95% CI: [-0.0759, 0.0826], p-value: 0.4322, Mean Acc: 0.5910, Acc 95% CI: [0.5078, 0.6719]
+Predictor: race_is_latino, Mean AUC: 0.5009, AUC increase: 0.0009, 95% CI: [-0.0655, 0.0632], p-value: 0.4805, Mean Acc: 0.5902, Acc 95% CI: [0.5078, 0.6719]
+Predictor: race_is_black, Mean AUC: 0.5156, AUC increase: 0.0156, 95% CI: [-0.0441, 0.0719], p-value: 0.2857, Mean Acc: 0.5889, Acc 95% CI: [0.5078, 0.6719]
+Predictor: race_is_asian, Mean AUC: 0.5171, AUC increase: 0.0171, 95% CI: [-0.0371, 0.0625], p-value: 0.2283, Mean Acc: 0.5928, Acc 95% CI: [0.5078, 0.6719]
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.5002, AUC increase: 0.0002, 95% CI: [-0.0427, 0.0400], p-value: 0.4845, Mean Acc: 0.5925, Acc 95% CI: [0.5078, 0.6719]
+Predictor: age, Mean AUC: 0.4957, AUC increase: -0.0043, 95% CI: [-0.0775, 0.0642], p-value: 0.5549, Mean Acc: 0.5804, Acc 95% CI: [0.5000, 0.6641]
+Predictor: income_satisfaction, Mean AUC: 0.5019, AUC increase: 0.0019, 95% CI: [-0.0566, 0.0570], p-value: 0.4706, Mean Acc: 0.5910, Acc 95% CI: [0.5078, 0.6719]
+Predictor: gad7_sum, Mean AUC: 0.7239, AUC increase: 0.2239, 95% CI: [0.1414, 0.3016], p-value: 0.0000, Mean Acc: 0.7001, Acc 95% CI: [0.6172, 0.7812]
+Predictor: sds_sum, Mean AUC: 0.6840, AUC increase: 0.1840, 95% CI: [0.0971, 0.2672], p-value: 0.0001, Mean Acc: 0.6549, Acc 95% CI: [0.5703, 0.7344]
+Predictor: alc_sum, Mean AUC: 0.5292, AUC increase: 0.0292, 95% CI: [-0.0607, 0.1239], p-value: 0.2789, Mean Acc: 0.5841, Acc 95% CI: [0.5000, 0.6641]
+Predictor: study_arm_EVO, Mean AUC: 0.5300, AUC increase: 0.0300, 95% CI: [-0.0625, 0.1132], p-value: 0.2392, Mean Acc: 0.5918, Acc 95% CI: [0.5078, 0.6719]
+Predictor: study_arm_HealthTips, Mean AUC: 0.5303, AUC increase: 0.0303, 95% CI: [-0.0581, 0.1104], p-value: 0.2342, Mean Acc: 0.5927, Acc 95% CI: [0.5078, 0.6719]
+Predictor: study_arm_iPST, Mean AUC: 0.4933, AUC increase: -0.0067, 95% CI: [-0.0659, 0.0547], p-value: 0.5905, Mean Acc: 0.5917, Acc 95% CI: [0.5078, 0.6719]
+Beam search: keeping top 5 predictors
+Adding predictor gad7_sum. New AUC: 0.7239
+Adding predictor sds_sum. New AUC: 0.6840
+
+Exploring path with predictors: ['gad7_sum']
+Current AUC: 0.7239
+Predictor: base_phq9, Mean AUC: 0.7224, AUC increase: -0.0016, 95% CI: [-0.0404, 0.0278], p-value: 0.7066, Mean Acc: 0.6958, Acc 95% CI: [0.6094, 0.7734]
+Predictor: gender, Mean AUC: 0.7237, AUC increase: -0.0003, 95% CI: [-0.0085, 0.0033], p-value: 0.9668, Mean Acc: 0.6996, Acc 95% CI: [0.6172, 0.7812]
+Predictor: education, Mean AUC: 0.7239, AUC increase: -0.0001, 95% CI: [-0.0108, 0.0096], p-value: 0.9363, Mean Acc: 0.7003, Acc 95% CI: [0.6172, 0.7812]
+Predictor: working, Mean AUC: 0.7235, AUC increase: -0.0004, 95% CI: [-0.0084, 0.0000], p-value: 0.9826, Mean Acc: 0.7000, Acc 95% CI: [0.6172, 0.7812]
+Predictor: marital_status, Mean AUC: 0.7250, AUC increase: 0.0010, 95% CI: [-0.0130, 0.0222], p-value: 0.8583, Mean Acc: 0.7002, Acc 95% CI: [0.6172, 0.7812]
+Predictor: race_is_latino, Mean AUC: 0.7252, AUC increase: 0.0012, 95% CI: [-0.0141, 0.0209], p-value: 0.8045, Mean Acc: 0.7002, Acc 95% CI: [0.6172, 0.7812]
+Predictor: race_is_black, Mean AUC: 0.7253, AUC increase: 0.0013, 95% CI: [-0.0263, 0.0239], p-value: 0.7149, Mean Acc: 0.6993, Acc 95% CI: [0.6172, 0.7812]
+Predictor: race_is_asian, Mean AUC: 0.7255, AUC increase: 0.0016, 95% CI: [-0.0415, 0.0341], p-value: 0.5704, Mean Acc: 0.7046, Acc 95% CI: [0.6172, 0.7812]
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.7236, AUC increase: -0.0004, 95% CI: [-0.0071, 0.0026], p-value: 0.9664, Mean Acc: 0.6992, Acc 95% CI: [0.6172, 0.7812]
+Predictor: age, Mean AUC: 0.7225, AUC increase: -0.0014, 95% CI: [-0.0484, 0.0272], p-value: 0.6219, Mean Acc: 0.6992, Acc 95% CI: [0.6172, 0.7812]
+Predictor: income_satisfaction, Mean AUC: 0.7241, AUC increase: 0.0002, 95% CI: [-0.0132, 0.0152], p-value: 0.8999, Mean Acc: 0.6995, Acc 95% CI: [0.6172, 0.7812]
+Predictor: sds_sum, Mean AUC: 0.7218, AUC increase: -0.0021, 95% CI: [-0.0486, 0.0362], p-value: 0.5919, Mean Acc: 0.6939, Acc 95% CI: [0.6094, 0.7734]
+Predictor: alc_sum, Mean AUC: 0.7310, AUC increase: 0.0070, 95% CI: [-0.0410, 0.0455], p-value: 0.3903, Mean Acc: 0.6967, Acc 95% CI: [0.6172, 0.7734]
+Predictor: study_arm_EVO, Mean AUC: 0.7277, AUC increase: 0.0037, 95% CI: [-0.0260, 0.0350], p-value: 0.6631, Mean Acc: 0.6979, Acc 95% CI: [0.6094, 0.7812]
+Predictor: study_arm_HealthTips, Mean AUC: 0.7302, AUC increase: 0.0062, 95% CI: [-0.0300, 0.0414], p-value: 0.5598, Mean Acc: 0.6950, Acc 95% CI: [0.6094, 0.7734]
+Predictor: study_arm_iPST, Mean AUC: 0.7241, AUC increase: 0.0002, 95% CI: [-0.0084, 0.0127], p-value: 0.9248, Mean Acc: 0.7000, Acc 95% CI: [0.6172, 0.7812]
+No predictors significantly improved the model. Stopping exploration for this path.
+
+Exploring path with predictors: ['sds_sum']
+Current AUC: 0.6840
+Predictor: base_phq9, Mean AUC: 0.6813, AUC increase: -0.0026, 95% CI: [-0.0529, 0.0342], p-value: 0.5683, Mean Acc: 0.6509, Acc 95% CI: [0.5625, 0.7344]
+Predictor: gender, Mean AUC: 0.6836, AUC increase: -0.0004, 95% CI: [-0.0027, 0.0000], p-value: 0.9875, Mean Acc: 0.6544, Acc 95% CI: [0.5625, 0.7344]
+Predictor: education, Mean AUC: 0.6836, AUC increase: -0.0003, 95% CI: [0.0000, 0.0000], p-value: 0.9938, Mean Acc: 0.6545, Acc 95% CI: [0.5625, 0.7344]
+Predictor: working, Mean AUC: 0.6834, AUC increase: -0.0005, 95% CI: [-0.0091, 0.0000], p-value: 0.9896, Mean Acc: 0.6545, Acc 95% CI: [0.5625, 0.7344]
+Predictor: marital_status, Mean AUC: 0.6836, AUC increase: -0.0004, 95% CI: [-0.0044, 0.0000], p-value: 0.9768, Mean Acc: 0.6545, Acc 95% CI: [0.5625, 0.7344]
+Predictor: race_is_latino, Mean AUC: 0.6836, AUC increase: -0.0004, 95% CI: [-0.0170, 0.0115], p-value: 0.9263, Mean Acc: 0.6540, Acc 95% CI: [0.5625, 0.7344]
+Predictor: race_is_black, Mean AUC: 0.6834, AUC increase: -0.0005, 95% CI: [-0.0289, 0.0190], p-value: 0.8321, Mean Acc: 0.6529, Acc 95% CI: [0.5625, 0.7344]
+Predictor: race_is_asian, Mean AUC: 0.6822, AUC increase: -0.0017, 95% CI: [-0.0367, 0.0180], p-value: 0.8829, Mean Acc: 0.6556, Acc 95% CI: [0.5703, 0.7344]
+Predictor: race_is_multiracial_or_other, Mean AUC: 0.6827, AUC increase: -0.0013, 95% CI: [-0.0291, 0.0134], p-value: 0.9157, Mean Acc: 0.6549, Acc 95% CI: [0.5625, 0.7344]
+Predictor: age, Mean AUC: 0.6795, AUC increase: -0.0045, 95% CI: [-0.0484, 0.0171], p-value: 0.7749, Mean Acc: 0.6507, Acc 95% CI: [0.5547, 0.7344]
+Predictor: income_satisfaction, Mean AUC: 0.6835, AUC increase: -0.0005, 95% CI: [-0.0119, 0.0024], p-value: 0.9677, Mean Acc: 0.6543, Acc 95% CI: [0.5625, 0.7344]
+Predictor: gad7_sum, Mean AUC: 0.7218, AUC increase: 0.0378, 95% CI: [-0.0375, 0.1133], p-value: 0.1518, Mean Acc: 0.6939, Acc 95% CI: [0.6094, 0.7734]
+Predictor: alc_sum, Mean AUC: 0.6867, AUC increase: 0.0027, 95% CI: [-0.0527, 0.0439], p-value: 0.4651, Mean Acc: 0.6588, Acc 95% CI: [0.5703, 0.7422]
+Predictor: study_arm_EVO, Mean AUC: 0.6830, AUC increase: -0.0009, 95% CI: [-0.0175, 0.0000], p-value: 0.9812, Mean Acc: 0.6540, Acc 95% CI: [0.5625, 0.7344]
+Predictor: study_arm_HealthTips, Mean AUC: 0.6834, AUC increase: -0.0006, 95% CI: [-0.0166, 0.0117], p-value: 0.9313, Mean Acc: 0.6533, Acc 95% CI: [0.5625, 0.7344]
+Predictor: study_arm_iPST, Mean AUC: 0.6838, AUC increase: -0.0002, 95% CI: [-0.0075, 0.0044], p-value: 0.9615, Mean Acc: 0.6549, Acc 95% CI: [0.5625, 0.7344]
+No predictors significantly improved the model. Stopping exploration for this path.
+       outcome          model  ... complexity rf_n_estimators
+0  mdd_improve  decision_tree  ...          2             100
+1  mdd_improve  decision_tree  ...          2             100
+
+[2 rows x 13 columns]
+SAVING AS: results/main/results_Brighten-v1/fwd_dt_depth_2_seed_0.csv
+Total time (seconds): 963.3498859405518

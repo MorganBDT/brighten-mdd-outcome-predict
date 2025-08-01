@@ -7,7 +7,7 @@ import ml_models
 import functools
 import time
 import sklearn
-from sklearn.metrics import roc_auc_score
+from sklearn.metrics import roc_auc_score, accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 
@@ -34,6 +34,7 @@ def get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstra
     """
     np.random.seed(seed)
     auc_samples = []
+    acc_samples = []
     coefs_samples = [] # For logistic regression only
     printed_warning_train = False
     printed_warning_test = False
@@ -51,7 +52,9 @@ def get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstra
             imputed_data = imputed_data.sample(n=len(imputed_data), replace=True)
         
         # Split data first
-        X_train, X_test, y_train, y_test = train_test_split(imputed_data, imputed_data[outcome], test_size=0.2)
+        X_train, X_test, y_train, y_test = train_test_split(
+            imputed_data, imputed_data[outcome], test_size=0.2, random_state=np.random.randint(2**32 - 1)
+        )
 
         if test_data is not None:
             if '_Imputation_' in test_data.columns:
@@ -64,7 +67,9 @@ def get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstra
                 imputed_test_data = test_data
             if resample:
                 imputed_test_data = imputed_test_data.sample(n=len(imputed_test_data), replace=True)
-            _, X_test, _, y_test = train_test_split(imputed_test_data, imputed_test_data[outcome], test_size=0.8)
+            _, X_test, _, y_test = train_test_split(
+                imputed_test_data, imputed_test_data[outcome], test_size=0.8, random_state=np.random.randint(2**32 - 1)
+            )
         
         if predictor_tuple:
             # Initialize StandardScaler
@@ -83,20 +88,28 @@ def get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstra
             )
             
             # Train and predict with scaled data
-            model = model_class_map[model_class_name](eval(model_params_str))
+            model_params = eval(model_params_str)
+            if model_class_name in ["decision_tree", "random_forest"]:
+                model_params['random_state'] = np.random.randint(2**32 - 1)
+            
+            model = model_class_map[model_class_name](model_params)
             model.fit(X_train_scaled, y_train)
             y_pred = model.proba(X_test_scaled)[:, 1]
+            y_pred_labels = model.model.predict(X_test_scaled)
             auc = roc_auc_score(y_test, y_pred)
+            acc = accuracy_score(y_test, y_pred_labels)
 
-            if model_class_name == "logistic_regression":
+            if model_class_name in ["logistic_regression", "svm"]:
                 coefs = pd.Series(np.reshape(model.model.coef_, -1),index=list(predictor_tuple))
             else:
                 coefs = None
 
         else:
             auc = 0.5
+            acc = 0.5
         
         auc_samples.append(auc)
+        acc_samples.append(acc)
         if coefs is not None:
             coefs_samples.append(coefs)
 
@@ -105,7 +118,7 @@ def get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstra
     else:
         coefs_df = None
 
-    return np.array(auc_samples), coefs_df
+    return np.array(auc_samples), np.array(acc_samples), coefs_df
 
 
 # Global counter for cache hits and misses
@@ -115,8 +128,8 @@ cache_misses = 0
 @functools.lru_cache(maxsize=None)
 def _get_cached_auc_samples(model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=False):
     global data
-    auc_samples, _ = get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample)
-    return auc_samples
+    auc_samples, acc_samples, _ = get_auc_samples(data, model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample)
+    return auc_samples, acc_samples
 
 
 def get_cached_auc_samples(model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, verbose=False, resample=False):
@@ -157,16 +170,17 @@ def bootstrap_auc_comparison(data, predictor_list, new_predictor, outcome, model
     if not predictor_list:
         # Base case: compare new predictor against AUC=0.5
         auc_k_samples = np.full(n_bootstrap, 0.5)
+        acc_k_samples = np.full(n_bootstrap, 0.5)
         new_predictor_tuple = tuple([new_predictor])
     else:
         # Get cached AUC samples for the current model
-        auc_k_samples = get_cached_auc_samples(model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
+        auc_k_samples, acc_k_samples = get_cached_auc_samples(model_class_name, predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
         # Prepare tuple for the model with the new predictor
         new_predictor_tuple = tuple(sorted(predictor_list + [new_predictor]))
     
     # Get AUC samples for the model with the new predictor
-    if model_class_name == "logistic_regression":
-        auc_new_samples, coefs_df = get_auc_samples(data, model_class_name, new_predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
+    if model_class_name in ["logistic_regression", "svm"]:
+        auc_new_samples, acc_new_samples, coefs_df = get_auc_samples(data, model_class_name, new_predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
 
         # Calculate statistics for each coefficient
         mean_coefs = {}
@@ -178,10 +192,11 @@ def bootstrap_auc_comparison(data, predictor_list, new_predictor, outcome, model
             coefs_ci_lower[feature] = np.percentile(coefs_df[feature], 2.5)
             coefs_ci_upper[feature] = np.percentile(coefs_df[feature], 97.5)
     else:
-        auc_new_samples = get_cached_auc_samples(model_class_name, new_predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
+        auc_new_samples, acc_new_samples = get_cached_auc_samples(model_class_name, new_predictor_tuple, outcome, n_bootstrap, seed, model_params_str, resample=resample)
         mean_coefs, coefs_ci_lower, coefs_ci_upper = None, None, None
 
     mean_auc = np.mean(auc_new_samples)
+    mean_acc = np.mean(acc_new_samples)
     
     # Calculate AUC differences
     auc_diff = auc_new_samples - auc_k_samples
@@ -191,8 +206,11 @@ def bootstrap_auc_comparison(data, predictor_list, new_predictor, outcome, model
     ci_lower = np.percentile(auc_diff, 2.5)
     ci_upper = np.percentile(auc_diff, 97.5)
     p_value = np.mean(auc_diff <= 0)  # One-sided p-value
+
+    acc_ci_lower = np.percentile(acc_new_samples, 2.5)
+    acc_ci_upper = np.percentile(acc_new_samples, 97.5)
     
-    return mean_auc, mean_diff, ci_lower, ci_upper, p_value, mean_coefs, coefs_ci_lower, coefs_ci_upper
+    return mean_auc, mean_diff, ci_lower, ci_upper, p_value, mean_acc, acc_ci_lower, acc_ci_upper, mean_coefs, coefs_ci_lower, coefs_ci_upper
 
 # Global variable to map model class names to actual classes
 model_class_map = {

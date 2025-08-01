@@ -5,13 +5,16 @@ from sklearn.preprocessing import StandardScaler
 def load_data(standardize=False, impute=False, drop=False, filename='formatted_brighten.csv', filter_cols=True):
     pt_data_all = pd.read_csv(filename)
 
-    predictors = [
+    predictors_all = [
         "base_phq9",
         "gender",
         "education",
         "working",
         "marital_status",
-        "race",
+        "race_is_latino",
+        "race_is_black",
+        "race_is_asian",
+        "race_is_multiracial_or_other",
         "age",
         "income_satisfaction",
         "gad7_sum",
@@ -23,13 +26,20 @@ def load_data(standardize=False, impute=False, drop=False, filename='formatted_b
         "study_arm_HealthTips",
         "study_arm_iPST",
     ]
+
+    predictors = []
+    for p in predictors_all:
+        if p in pt_data_all.columns:
+            predictors.append(p)
+        else:
+            print(f"PLEASE NOTE: predictor '{p}' not in dataframe loaded from '{filename}'.")
     
     if filter_cols:
         if "_Imputation_" in pt_data_all.columns:
-            pt_data_all = pt_data_all[predictors + ["response", "_Imputation_"]]
+            pt_data_all = pt_data_all[predictors + ["mdd_improve", "_Imputation_"]]
             pt_data_all["_Imputation_"] = pt_data_all["_Imputation_"].astype(int)
         else:
-            pt_data_all = pt_data_all[predictors + ["response"]]
+            pt_data_all = pt_data_all[predictors + ["mdd_improve"]]
     
     if impute:
         for predictor in predictors:
