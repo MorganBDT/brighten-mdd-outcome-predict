@@ -1,7 +1,8 @@
 # Data analysis code for: Talbot et al. 2025, Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions
 
 This repository contains the data analysis code for the paper:
-Talbot, Morgan B., Jessica M. Lipschitz†, and Omar Costilla-Reyes†. "Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions." Journal of Affective Disorders (2025). †Co-Senior Authors. 
+
+Talbot, Morgan B., Jessica M. Lipschitz*, and Omar Costilla-Reyes*. "Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions." Journal of Affective Disorders (2025): 120416. *Co-Senior Authors.
 
 
 ## Abstract
