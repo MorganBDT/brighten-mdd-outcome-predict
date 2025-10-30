@@ -2,11 +2,24 @@
 
 This repository contains the data analysis code for the paper:
 
-Talbot, Morgan B., Jessica M. Lipschitz*, and Omar Costilla-Reyes*. "Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions." _Journal of Affective Disorders_ (2025): 120416. *Co-Senior Authors. DOI: [10.1016/j.jad.2025.120416](https://doi.org/10.1016/j.jad.2025.120416)
+Talbot, Morgan B., Jessica M. Lipschitz*, and Omar Costilla-Reyes*. "Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions." _Journal of Affective Disorders_ 394 (2026): 120416. *Co-Senior Authors. DOI: [10.1016/j.jad.2025.120416](https://doi.org/10.1016/j.jad.2025.120416)
 
 [arXiv Link](https://arxiv.org/abs/2409.11183)
 
-
+```bibtex
+@article{talbot2026comorbid,
+  title = {Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions},
+  journal = {Journal of Affective Disorders},
+  volume = {394},
+  pages = {120416},
+  year = {2026},
+  issn = {0165-0327},
+  doi = {https://doi.org/10.1016/j.jad.2025.120416},
+  url = {https://www.sciencedirect.com/science/article/pii/S0165032725018580},
+  author = {Morgan B. Talbot and Jessica M. Lipschitz and Omar Costilla-Reyes},
+  note = {Jessica M. Lipschitz and Omar Costilla-Reyes are co-senior authors.}
+}
+```
 
 ## Abstract
 
