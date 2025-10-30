@@ -1,4 +1,4 @@
-# Data analysis code for: Talbot et al. 2025, Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions
+# Data analysis code: Comorbid anxiety predicts lower odds of MDD improvement in a trial of smartphone-delivered interventions
 
 This repository contains the data analysis code for the paper:
 
